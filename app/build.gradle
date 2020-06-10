@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('D:\\jenkins\\jenkins-project\\jenkins.jks')
+            storePassword '872127'
+            keyAlias = 'jenkins'
+            keyPassword '872127'
+        }
+    }
     compileSdkVersion 29
     defaultConfig {
         applicationId "com.ljt.jenkins_master"
@@ -9,6 +17,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.release
     }
     buildTypes {
         release {
